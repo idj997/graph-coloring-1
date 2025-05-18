@@ -19,6 +19,7 @@ int* vertex_colors;
 Vertex* vertices;
 int** adjacent_matrix;
 bool check_colorability(std::vector<Vertex>);
+void update_saturation_degrees(int colored_vertex_id);
 bool search_color_adjacent(const int,const int);
 bool search_color_adjacent(const int,const int,Vertex*);
 bool search_color_adjacent_grasp(const int,const int,std::vector<Vertex>);
@@ -29,7 +30,7 @@ bool vertex_left();
 void sum_adjacent_saturation(const int);
 void sum_adjacent_saturation(const int,std::vector<Vertex>&);
 void print_graph_coloring();
-int count_colors(Vertex*);
+// int count_colors(Vertex*);
 int count_colors_grasp(std::vector<Vertex>);
 void order_vertices(char);
 void order_vertices(char,std::vector<Vertex>&);
@@ -37,10 +38,14 @@ Vertex* grasp_constructor();
 
 public:
   Vertex* heuristic_constructor();
+  Graph(int** matrix, int n);
+  int count_colors(Vertex*);
   void vnd();
   void neighbourhood_search();
   Vertex* dsatur();
   void grasp();
   Graph();
+  void exportEdges(const std::string& filename);
+  void exportColors(const std::string& filename);
 
 };
